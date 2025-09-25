@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Palette, Database, Globe, Smartphone, Zap, Cloud, Users } from 'lucide-react';
+import { Code, Palette, Database, Globe, Smartphone, Zap, Cloud, Users, Server } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
@@ -47,12 +47,22 @@ const Skills = () => {
         { name: "Cloudinary", level: 85, description: "Media management, image optimization" },
         { name: "Web3Forms", level: 90, description: "Form handling, user interactions" }
       ]
+    },
+    {
+      title: "Backend Development",
+      icon: <Server className="w-6 h-6" />,
+      gradient: "from-indigo-500 to-blue-500",
+      skills: [
+        { name: "Node.js", level: 85, description: "Server-side JavaScript, asynchronous programming" },
+        { name: "Express.js", level: 80, description: "RESTful API development, middleware" },
+        { name: "MongoDB", level: 80, description: "NoSQL database, schema design, querying" }
+      ]
     }
   ];
 
   const additionalSkills = [
     { name: "React Native", icon: <Smartphone className="w-5 h-5" />, color: "text-blue-600" },
-    { name: "NativeWind", icon: <Zap className="w-5 h-5" />, color: "text-purple-600" },
+    { name: "Basin", icon: <Zap className="w-5 h-5" />, color: "text-purple-600" },
     { name: "Team Collaboration", icon: <Users className="w-5 h-5" />, color: "text-green-600" },
     { name: "Problem Solving", icon: <Globe className="w-5 h-5" />, color: "text-orange-600" }
   ];
@@ -166,7 +176,7 @@ const Skills = () => {
               My Learning Journey
             </h3>
             <p className="text-gray-700 text-base sm:text-lg mb-6">
-              From Geology graduate to Frontend Developer - a self-taught journey powered by curiosity and dedication.
+              From Geology graduate to Full Stack Developer - a self-taught journey powered by curiosity and dedication.
             </p>
             <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               <motion.div 

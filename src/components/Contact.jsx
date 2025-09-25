@@ -8,7 +8,7 @@ const Contact = () => {
     email: '',
     subject: '',
     message: '',
-    access_key: 'YOUR_ACCESS_KEY_HERE' // Replace with your Web3Forms access key
+    honeypot: '' // Honeypot field for Basin (should remain empty)
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -19,32 +19,39 @@ const Contact = () => {
     setIsSubmitting(true);
     setError(null);
 
+    // Basic honeypot check (optional client-side)
+    if (formData.honeypot) {
+      setError('Form submission failed due to spam detection.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('https://usebasin.com/f/f72279efd21a', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Accept: 'application/json'
+          'Accept': 'application/json'
         },
         body: JSON.stringify(formData)
       });
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
         setIsSubmitted(true);
         setFormData({ 
           name: '', 
           email: '', 
           subject: '', 
           message: '', 
-          access_key: 'YOUR_ACCESS_KEY_HERE' // Reset but keep access key
+          honeypot: ''
         });
         setTimeout(() => {
           setIsSubmitted(false);
         }, 3000);
       } else {
-        setError('Failed to send message. Please try again later.');
+        setError(result.message || 'Failed to send message. Please try again later.');
       }
     } catch (err) {
       setError('An error occurred. Please try again later.');
@@ -222,10 +229,16 @@ const Contact = () => {
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot field - hidden from users */}
                 <input
-                  type="hidden"
-                  name="access_key"
-                  value={formData.access_key}
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  className="hidden"
+                  style={{ display: 'none' }}
+                  placeholder="Leave this field empty"
                 />
                 <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
