@@ -183,7 +183,7 @@ const Skills = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white/90 rounded-xl p-3 sm:p-4 shadow-lg border border-white/30"
               >
-                <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">2023</div>
+                <div className="text-xl sm:text-2xl font-bold text-blue-600 mb-1">2021</div>
                 <div className="text-xs sm:text-sm text-gray-600">Started Learning</div>
               </motion.div>
               <motion.div 
