@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Code, Rocket, Star } from 'lucide-react';
+import { ArrowDown, Code, Rocket, Star, FileDown } from 'lucide-react';
 import ThreeBackground from './ThreeBackground';
 
 const Hero = () => {
@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="space-y-8 text-white">
             <div className="flex items-center space-x-2 text-blue-400 animate-fade-in">
               <Star className="h-5 w-5 fill-blue-400" />
-              <span className="font-medium text-sm sm:text-base">Available for Frontend Projects</span>
+              <span className="font-medium text-sm sm:text-base">Available for Frontend & Backend Projects</span>
             </div>
 
             <div className="space-y-4 animate-slide-up">
@@ -75,7 +75,7 @@ const Hero = () => {
             </p>
 
             <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-lg drop-shadow-lg animate-fade-in-delay-2">
-              Self-taught developer from Niger Delta University, creating beautiful, responsive web applications with React, Tailwind CSS, and modern APIs.
+              Self-taught developer from Niger Delta University, building responsive apps with React, Tailwind, Node.js, Express & MongoDB.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
@@ -88,14 +88,16 @@ const Hero = () => {
                 <span>View My Work</span>
                 <ArrowDown className="h-5 w-5" />
               </motion.button>
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection('contact')}
-                className="border-2 border-blue-400 text-blue-400 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/25 transform hover:scale-105"
+                href="/Gideon_CV.pdf" // Place your CV file inside /public folder
+                download="Gideon_Joseph_CV.pdf"
+                className="border-2 border-green-400 text-green-400 px-6 py-3 sm:px-8 sm:py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-white transition-all duration-300 backdrop-blur-sm bg-white/25 transform hover:scale-105 flex items-center space-x-2"
               >
-                Get In Touch
-              </motion.button>
+                <FileDown className="h-5 w-5" />
+                <span>Download CV</span>
+              </motion.a>
             </div>
           </div>
 
@@ -108,8 +110,8 @@ const Hero = () => {
                   <Code className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-2xl">React Specialist</h3>
-                  <p className="text-gray-100 text-sm sm:text-base font-medium">Building Modern Web Apps</p>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white drop-shadow-2xl">Full Stack Developer</h3>
+                  <p className="text-gray-100 text-sm sm:text-base font-medium">React • Node.js • Express • MongoDB</p>
                 </div>
               </div>
             </div>
@@ -119,7 +121,7 @@ const Hero = () => {
               {[
                 { number: '5+', label: 'Projects Deployed', color: 'from-blue-400 to-blue-600' },
                 { number: 'React', label: 'Specialist', color: 'from-purple-400 to-purple-600' },
-                { number: '2023', label: 'Graduate', color: 'from-pink-400 to-pink-600' },
+                { number: 'Node.js', label: 'Backend', color: 'from-green-400 to-green-600' },
               ].map((stat, index) => (
                 <div
                   key={index}
